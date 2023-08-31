@@ -1,0 +1,38 @@
+body {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    background-color: rgb(31, 31, 31);
+    text-align: center;
+    color:rgb(255, 255, 181);
+}
+#buttoncontainer {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+#header {
+    font-size: 50px;
+}
+
+#resultcontainer {
+    margin-bottom: 35px;
+    height: 25px;
+}
+
+#resetbutton {
+    border-radius: 5px;
+    height: 25px;
+    border: 0px;
+}
+
+.weapon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 75px;
+    width: 125px;
+    height: 125px;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+    border: 0px;
+}

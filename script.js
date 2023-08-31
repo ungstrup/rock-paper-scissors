@@ -25,7 +25,7 @@ function playRound (player) {
         (player == "scissors" && computerSelection == "paper")){
         playerScore ++;
         if (playerScore == 5){
-            return "You won! You got to 5 first. Reload the page to play again.";
+            return "You won! You got to 5 first.";
         } else{
             return ("You win! " + player + " beats " + computerSelection);
         };
@@ -34,14 +34,14 @@ function playRound (player) {
     } else {
         computerScore ++;
         if (computerScore == 5){
-            return "You lose! The computer got to 5 first. Reload the page to play again.";
+            return "You lose! The computer got to 5 first.";
         } else {
             return ("You lose! " + computerSelection + " beats " + player);
         };
     }
 }
 
-const buttons = document.querySelectorAll('button');
+const buttons = document.querySelectorAll('.weapon');
 const resultsList = document.querySelector('#resultcontainer');
 const showScore = document.querySelector('#score');
 const score = document.createElement('p');
@@ -50,6 +50,14 @@ showScore.appendChild(score);
 const result = document.createElement('p');
 result.classList.add('result');
 resultsList.appendChild(result);
+const restart = document.querySelector('#resetbutton');
+restart.addEventListener('click', () => {
+    playerScore = 0;
+    computerScore = 0;
+    result.textContent = "";
+    score.textContent = `Player: ${playerScore} Computer: ${computerScore}`;
+});
+
 
 buttons.forEach((button) => {
     button.addEventListener('click', () => {

@@ -4,13 +4,15 @@
         <meta charset="UTF-8">
         <title>Rock Paper Scissors</title>
         <script src="script.js" defer></script>
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
+        <h1 id="header">Rock Paper Scissors</h1>
         <h1>Make your choice:</h1>
         <div id="buttoncontainer">
-            <button id="rock">Rock!</button>
-            <button id="paper">Paper!</button>
-            <button id="scissors">Scissors!</button>
+            <button class="weapon" id="rock"><span class="emoji">🪨</span></button>
+            <button class="weapon" id="paper"><span class="emoji">📜</span></button>
+            <button class="weapon" id="scissors"><span class="emoji">✂️</span></button>
         </div>
         <div id="score">
             <h3>The score is:</h3>
@@ -18,5 +20,6 @@
         <div id="resultcontainer">
 
         </div>
+        <button id="resetbutton">Restart game</button>
     </body>
 </html>
