@@ -18,36 +18,43 @@ function getComputerChoice (){
     }
 }
 
-function playRound (player, computer) {
+function playRound (player) {
     computerSelection = getComputerChoice();
     if ((player == "rock" && computerSelection == "scissors") ||
         (player == "paper" && computerSelection == "rock") ||
         (player == "scissors" && computerSelection == "paper")){
         playerScore ++;
-        return ("You win! " + player + " beats " + computerSelection);
+        if (playerScore == 5){
+            return "You won! You got to 5 first. Reload the page to play again.";
+        } else{
+            return ("You win! " + player + " beats " + computerSelection);
+        };
     } else if (player == computerSelection){
         return "It's a tie!";
     } else {
         computerScore ++;
-        return ("You lose! " + computerSelection + " beats " + player);
+        if (computerScore == 5){
+            return "You lose! The computer got to 5 first. Reload the page to play again.";
+        } else {
+            return ("You lose! " + computerSelection + " beats " + player);
+        };
     }
 }
 
-function game () {
-    for (i = 0; i <= 4; i++){
-        playerSelection = prompt("Rock, Paper or Scissors?").toLowerCase();
-        console.log(playRound(playerSelection, computerSelection));
-        console.log("The score is: Player: " + playerScore + " Computer: " + computerScore);
-        if (i == 4){
-            if (playerScore == computerScore) {
-                console.log("It's a tie!");
-            } else if (playerScore > computerScore) {
-                console.log("You won!");
-            } else {
-                console.log("You lose!");
-            }
-        }
-    }
-}
+const buttons = document.querySelectorAll('button');
+const resultsList = document.querySelector('#resultcontainer');
+const showScore = document.querySelector('#score');
+const score = document.createElement('p');
+score.textContent = `Player: ${playerScore} Computer: ${computerScore}`;
+showScore.appendChild(score);
+const result = document.createElement('p');
+result.classList.add('result');
+resultsList.appendChild(result);
 
-game();
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        if (playerScore == 5 || computerScore == 5) return;
+        result.textContent = playRound(button.id);
+        score.textContent = `Player: ${playerScore} Computer: ${computerScore}`;
+    });
+});
